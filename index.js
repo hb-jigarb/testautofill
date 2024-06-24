@@ -1,19 +1,23 @@
 const express = require('express');
 const path = require('path');
-
+const fs = require('fs');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
-// Serve the apple-app-site-association file from the root directory
+// Serve the apple-app-site-association file
 app.get('/apple-app-site-association', (req, res) => {
-    res.sendFile(path.join(__dirname, 'apple-app-site-association'));
+    const filePath = path.join(__dirname, 'apple-app-site-association');
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.send(data);
+    });
 });
 
-// Example route for your index file
-app.get('/', (req, res) => {
-    res.send('Welcome to your Node.js application!');
-});
-
+// Start the server
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server running at http://localhost:${port}`);
 });
