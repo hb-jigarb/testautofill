@@ -5,3 +5,24 @@
         ]
     }
 }
+
+{
+    "webcredentials": {
+        "apps": [
+            "6JB9XW3D3N.com.hb.app.dom.norma2devprod"
+        ]
+    },
+    "applinks": {
+        "apps": [
+            "6JB9XW3D3N.com.hb.app.dom.norma2devprod"
+        ],
+        "details": [
+            {
+                "appID": "6JB9XW3D3N.com.hb.app.dom.norma2devprod",
+                "paths": [
+                    "*"
+                ]
+            }
+        ]
+    }
+}
